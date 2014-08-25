@@ -60,9 +60,9 @@ level33 = createPuzzle [((2,2), Down), ((4,2), Right), ((4,4), Up), ((2,5), Left
                        [((1,1), Blue), ((1,2), Red), ((1,3), Black)]
                        [((2,2), Square Blue Down), ((4,2), Square Black Right), ((4,4), Square Red Up)]
 
-level35 = createPuzzle [((1,2), Down), ((2,5), Left), ((5,1), Right), ((6,4), Up)]
+level35 = createPuzzle [((1,2), Down), ((2,5), Left), ((4,1), Right), ((5,4), Up)]
                        [((1,3), Black), ((1,4), Red), ((1,5), Orange)]
-                       [((6,1), Square Orange Right), ((6,2), Square Red Right), ((6,3), Square Black Right)]
+                       [((5,1), Square Orange Right), ((5,2), Square Red Right), ((5,3), Square Black Right)]
                       
 direction :: Direction -> Position -> Position
 direction Up    (r, c) = (r-1, c)
@@ -116,4 +116,4 @@ solve puzzle = format $ solve' puzzle [(pInitial puzzle,[])] S.empty
 -- | The main entry point.
 main :: IO ()
 main = do
-    print $ solve level33
+    print $ solve level35
