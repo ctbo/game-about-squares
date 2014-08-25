@@ -7,7 +7,8 @@ module Main where
 import Prelude hiding (Left, Right)
 import qualified Data.Map as M
 import qualified Data.Set as S
-import Data.List (find)
+import Data.List (find, group)
+import Control.Arrow ((&&&))
 
 type Position = (Int, Int)
 type Rectangle = (Position, Position)
@@ -108,10 +109,11 @@ solve' puzzle ((s,cs):ss) visited = case find solution newStates of
           newStatesColors = map (\(c, s) -> (s, c:cs)) newStates'
           solution (_, s) = finished puzzle s
 
-solve :: Puzzle -> [Color]
-solve puzzle = solve' puzzle [(pInitial puzzle,[])] S.empty
+solve :: Puzzle -> [(Int, Color)]
+solve puzzle = format $ solve' puzzle [(pInitial puzzle,[])] S.empty
+    where format = map (length &&& head) . group
          
 -- | The main entry point.
 main :: IO ()
 main = do
-    print $ solve level35
+    print $ solve level33
