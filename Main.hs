@@ -39,7 +39,6 @@ createPuzzle arrows targets initial = Puzzle (M.fromList arrows) (M.fromList tar
           h = head positions
           
 level0 = createPuzzle [] [((3,1), Red)] [((1,1), Square Red Down)]
-
                      
 level2 = createPuzzle []
                       [((1,2), Blue), ((1,3), Red), ((2,2), Black)]
