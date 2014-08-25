@@ -1,3 +1,6 @@
+-- solver for gameaboutsquares.com
+-- by Harald Bögeholz
+
 -- | Main entry point to the application.
 module Main where
 
