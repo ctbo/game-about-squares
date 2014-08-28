@@ -55,6 +55,16 @@ level4 = createPuzzle []
                       [((2,2), Red), ((3,3), Black), ((4,4), Blue)]
                       [((1,2), Square Red Down), ((2,1), Square Blue Right), ((2,3), Square Black Down)]
 
+level19 = createPuzzle [((4,1), Down), ((5,2), Down), ((5,4), Left)
+                       ,((6,2), Right), ((6,3), Up), ((7,1), Right)
+                       ,((7,4), Up)
+                       ]
+                       [((1,3), Red), ((3,3), Blue), ((5,3), Black)]
+                       [((4,1), Square Red Down)
+                       ,((5,2), Square Blue Down)
+                       ,((6,3), Square Black Up)
+                       ]
+
 level33 = createPuzzle [((2,2), Down), ((4,2), Right), ((4,4), Up), ((2,5), Left)]
                        [((1,1), Blue), ((1,2), Red), ((1,3), Black)]
                        [((2,2), Square Blue Down), ((4,2), Square Black Right), ((4,4), Square Red Up)]
@@ -115,4 +125,5 @@ solve puzzle = format $ solve' puzzle [(pInitial puzzle,[])] S.empty
 -- | The main entry point.
 main :: IO ()
 main = do
-    print $ solve level35
+    print $ solve level19
+
